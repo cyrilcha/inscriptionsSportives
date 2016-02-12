@@ -48,7 +48,7 @@ public class Competition implements Comparable<Competition>, Serializable
 	
 	public boolean inscriptionsOuvertes()
 	{
-		// TODO retourner vrai si la date système est ultérieure à la date de clôture.
+		// TODO retourner vrai si et seulement si la date système est antérieure à la date de clôture.
 		return true;
 	}
 	
@@ -96,7 +96,8 @@ public class Competition implements Comparable<Competition>, Serializable
 	
 	/**
 	 * Inscrit un candidat de type Personne à la compétition. Provoque une
-	 * exception si la compétition est réservée aux équipes.
+	 * exception si la compétition est réservée aux équipes ou que les 
+	 * inscriptions sont closes.
 	 * @param personne
 	 * @return
 	 */
@@ -112,7 +113,8 @@ public class Competition implements Comparable<Competition>, Serializable
 
 	/**
 	 * Inscrit un candidat de type Equipe à la compétition. Provoque une
-	 * exception si la compétition est réservée aux personnes.
+	 * exception si la compétition est réservée aux personnes ou que 
+	 * les inscriptions sont closes.
 	 * @param personne
 	 * @return
 	 */
