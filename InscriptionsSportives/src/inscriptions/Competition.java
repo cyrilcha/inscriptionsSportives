@@ -41,7 +41,8 @@ public class Competition implements Comparable<Competition>, Serializable
 	}
 	
 	/**
-	 * Retourne la date de cloture des inscriptions.
+	 * Retourne vrai si les inscriptions sont encore ouvertes, 
+	 * faux si les inscriptions sont closes.
 	 * @return
 	 */
 	
