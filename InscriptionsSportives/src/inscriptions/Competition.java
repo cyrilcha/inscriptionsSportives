@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.time.LocalDate;
 import java.util.Set;
 import java.util.TreeSet;
-
 /**
  * Représente une compétition, c'est-à-dire un ensemble de candidats 
  * inscrits à un événement, les inscriptions sont closes à la date dateCloture.
@@ -49,7 +48,7 @@ public class Competition implements Comparable<Competition>, Serializable
 	public boolean inscriptionsOuvertes()
 	{
 		LocalDate dateSystem = LocalDate.now();
-		if(dateCloture.isAfter(dateSystem))
+		if(this.dateCloture.isAfter(dateSystem))
 			return true;
 		else
 			return false;
@@ -83,8 +82,10 @@ public class Competition implements Comparable<Competition>, Serializable
 	
 	public void setDateCloture(LocalDate dateCloture)
 	{
-		if(this.dateCloture.isAfter(dateCloture))
+		if(dateCloture.isAfter(this.dateCloture))
 			this.dateCloture = dateCloture;
+		else
+			throw new RuntimeException("Vous ne pouvez pas avancer la date de clôture");
 	}
 	
 	/**
@@ -115,7 +116,7 @@ public class Competition implements Comparable<Competition>, Serializable
 			return candidats.add(personne);
 		}
 		else
-			return false;
+			throw new RuntimeException("Les inscriptions sont fermées");
 	}
 
 	/**

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+
 /**
  * Point d'entrée dans l'application, un seul objet de type Inscription
  * permet de gérer les compétitions, candidats (de type equipe ou personne)
@@ -213,8 +214,8 @@ public class Inscriptions implements Serializable
 	
 	public static void main(String[] args)
 	{
-		Inscriptions inscriptions = Inscriptions.getInscriptions();
-		Competition flechettes = inscriptions.createCompetition("Mondial de fléchettes", null, false);
+		/*Inscriptions inscriptions = Inscriptions.getInscriptions();
+		Competition flechettes = inscriptions.createCompetition("Mondial de fléchettes", LocalDate.parse("2016-12-31"), false);
 		Personne tony = inscriptions.createPersonne("Tony", "Dent de plomb", "azerty"), 
 				boris = inscriptions.createPersonne("Boris", "le Hachoir", "ytreza");
 		flechettes.add(tony);
@@ -231,6 +232,6 @@ public class Inscriptions implements Serializable
 		catch (IOException e)
 		{
 			System.out.println("Sauvegarde impossible." + e);
-		}
+		}*/
 	}
 }
