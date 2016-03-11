@@ -7,7 +7,7 @@ import utilitaires.EntreesSorties;
 
 public class SupprimerCompetition implements Action 
 {
-	public SupprimerCompetition(MenuEquipe menu)
+	public SupprimerCompetition(MenuCompetition menu)
 	{
 		Inscriptions inscriptions = Inscriptions.getInscriptions();
 	}

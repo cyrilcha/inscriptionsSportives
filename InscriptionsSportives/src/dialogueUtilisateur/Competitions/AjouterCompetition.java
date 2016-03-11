@@ -7,18 +7,20 @@ import java.time.LocalDate;
 
 import dialogueUtilisateur.Equipes.MenuEquipe;
 
-public class AjouterCompetition implements Action 
+public class AjouterCompetition extends Option implements Action
 {
 	
-	public AjouterCompetition(MenuEquipe menu)
-	{
-		Inscriptions inscriptions = Inscriptions.getInscriptions();
+
+	public AjouterCompetition(Inscriptions inscriptions) {
+		super("Ajouter une compétition", "a");
+		setAction(this);
 	}
-	
-	public void optionSelectionnee()
-	{
+
+
+	@Override
+	public void optionSelectionnee() {
 		String nomCompetition = EntreesSorties.getString("Saisissez le nom de la compétition");
-		//LocalDate Datecloture = EntreesSorties.getString("Mettez la date de clôture de la compétition");
+		LocalDate Datecloture = LocalDate.parse(EntreesSorties.getString("Mettez la date de clôture de la compétition (jj-mm-aa)"));
 		
 	}
 		

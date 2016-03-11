@@ -1,9 +1,8 @@
 package dialogueUtilisateur.Personnes;
 
 import inscriptions.Inscriptions;
-import utilitaires.ligneCommande.Action;
-import utilitaires.ligneCommande.Menu;
-import utilitaires.ligneCommande.Option;
+import utilitaires.ligneDeCommande.*;
+import utilitaires.EntreesSorties;
 
 public class MenuPersonne extends Menu
 {

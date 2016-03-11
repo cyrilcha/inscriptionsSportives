@@ -1,8 +1,7 @@
 package dialogueUtilisateur.Equipes;
 
 import inscriptions.Inscriptions;
-import utilitaires.ligneDeCommande.Action;
-import utilitaires.ligneDeCommande.Menu;
+import utilitaires.ligneDeCommande.*;
 import utilitaires.EntreesSorties;
 
 

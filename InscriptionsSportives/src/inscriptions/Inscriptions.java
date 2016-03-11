@@ -215,7 +215,7 @@ public class Inscriptions implements Serializable
 	public static void main(String[] args)
 	{
 		/*Inscriptions inscriptions = Inscriptions.getInscriptions();
-		Competition flechettes = inscriptions.createCompetition("Mondial de fléchettes", LocalDate.parse("2016-12-31"), false);
+		Competition flechettes = inscriptions.createCompetition("Mondial de fléchettes", LocalDate.parse("2 016-12-31"), false);
 		Personne tony = inscriptions.createPersonne("Tony", "Dent de plomb", "azerty"), 
 				boris = inscriptions.createPersonne("Boris", "le Hachoir", "ytreza");
 		flechettes.add(tony);
