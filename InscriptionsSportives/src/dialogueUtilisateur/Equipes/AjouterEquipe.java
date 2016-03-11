@@ -1,12 +1,10 @@
 package dialogueUtilisateur.Equipes;
 
 import inscriptions.Inscriptions;
-
-import dialogueUtilisateur.Action;
-import dialogueUtilisateur.Menu;
-import dialogueUtilisateur.Option;
+import utilitaires.ligneDeCommande.Action;
+import utilitaires.EntreesSorties;
 import dialogueUtilisateur.Equipes.MenuEquipe;
-import es.EntreesSorties;
+
 
 public class AjouterEquipe implements Action 
 {

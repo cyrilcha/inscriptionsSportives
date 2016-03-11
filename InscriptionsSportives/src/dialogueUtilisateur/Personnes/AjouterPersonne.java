@@ -2,11 +2,10 @@ package dialogueUtilisateur.Personnes;
 
 import inscriptions.Inscriptions;
 
-import dialogueUtilisateur.Action;
-import dialogueUtilisateur.Menu;
-import dialogueUtilisateur.Option;
+import utilitaires.ligneDeCommande.*;
+import utilitaires.EntreesSorties;
+
 import dialogueUtilisateur.Personnes.MenuPersonne;
-import es.EntreesSorties;
 
 public class AjouterPersonne implements Action 
 {

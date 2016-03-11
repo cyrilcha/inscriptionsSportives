@@ -2,15 +2,12 @@ package dialogueUtilisateur.Competitions;
 
 import inscriptions.Inscriptions;
 
-import dialogueUtilisateur.Action;
-import dialogueUtilisateur.Menu;
-import dialogueUtilisateur.Option;
-
-import es.EntreesSorties;
+import utilitaires.ligneDeCommande.*;
+import utilitaires.EntreesSorties;
 
 public class SupprimerCompetition implements Action 
 {
-	public SupprimerCompetition(MenuCompetition menu)
+	public SupprimerCompetition(MenuEquipe menu)
 	{
 		Inscriptions inscriptions = Inscriptions.getInscriptions();
 	}

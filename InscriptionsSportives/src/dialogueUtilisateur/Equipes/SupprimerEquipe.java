@@ -1,10 +1,9 @@
 package dialogueUtilisateur.Equipes;
 
 import inscriptions.Inscriptions;
-
-import dialogueUtilisateur.Action;
-import dialogueUtilisateur.Menu;
-import dialogueUtilisateur.Option;
+import utilitaires.ligneCommande.Action;
+import utilitaires.ligneCommande.Menu;
+import utilitaires.ligneCommande.Option;
 import dialogueUtilisateur.Equipes.MenuEquipe;
 import dialogueUtilisateur.Personnes.MenuPersonne;
 import es.EntreesSorties;

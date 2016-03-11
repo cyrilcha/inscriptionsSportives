@@ -1,9 +1,9 @@
 package dialogueUtilisateur.Equipes;
 
 import inscriptions.Inscriptions;
-import dialogueUtilisateur.Action;
-import dialogueUtilisateur.Menu;
-import dialogueUtilisateur.Option;
+import utilitaires.ligneDeCommande.Action;
+import utilitaires.ligneDeCommande.Menu;
+import utilitaires.EntreesSorties;
 
 
 public class MenuEquipe extends Menu 

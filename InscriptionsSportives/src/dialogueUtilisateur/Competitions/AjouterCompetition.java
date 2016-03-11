@@ -1,19 +1,16 @@
 package dialogueUtilisateur.Competitions;
 
 import inscriptions.Inscriptions;
-
+import utilitaires.ligneDeCommande.*;
+import utilitaires.EntreesSorties;
 import java.time.LocalDate;
 
-import dialogueUtilisateur.Action;
-import dialogueUtilisateur.Menu;
-import dialogueUtilisateur.Option;
-
-import es.EntreesSorties;
+import dialogueUtilisateur.Equipes.MenuEquipe;
 
 public class AjouterCompetition implements Action 
 {
 	
-	public AjouterCompetition(MenuCompetition menu)
+	public AjouterCompetition(MenuEquipe menu)
 	{
 		Inscriptions inscriptions = Inscriptions.getInscriptions();
 	}
