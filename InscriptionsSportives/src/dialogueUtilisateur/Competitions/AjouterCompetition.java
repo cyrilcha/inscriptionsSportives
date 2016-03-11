@@ -20,7 +20,7 @@ public class AjouterCompetition extends Option implements Action
 	@Override
 	public void optionSelectionnee() {
 		String nomCompetition = EntreesSorties.getString("Saisissez le nom de la compétition");
-		LocalDate Datecloture = LocalDate.parse(EntreesSorties.getString("Mettez la date de clôture de la compétition (jj-mm-aa)"));
+		LocalDate dateCloture = LocalDate.parse(EntreesSorties.getString("Mettez la date de clôture de la compétition (aa-mm-jj)"));
 		
 	}
 		
