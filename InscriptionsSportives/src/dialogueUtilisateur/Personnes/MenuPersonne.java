@@ -10,7 +10,7 @@ public class MenuPersonne extends Menu
 	
 	public MenuPersonne(Inscriptions inscriptions)
 	{
-		super("Gestion des personnes");
+		super("Gestion des personnes", "p");
 		this.inscriptions=inscriptions;
 	}
 

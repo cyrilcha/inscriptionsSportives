@@ -7,11 +7,14 @@ import utilitaires.EntreesSorties;
 
 import dialogueUtilisateur.Personnes.MenuPersonne;
 
-public class AjouterPersonne implements Action 
+public class AjouterPersonne extends Option implements Action 
 {
-	public AjouterPersonne(MenuPersonne menu)
+	private Inscriptions inscriptions;
+	public AjouterPersonne(Inscriptions inscriptions)
 	{
-		Inscriptions inscriptions = Inscriptions.getInscriptions();
+		super("Ajouter une personne", "a");
+		this.inscriptions = inscriptions;
+		setAction(this);
 	}
 	public void optionSelectionnee()
 	{

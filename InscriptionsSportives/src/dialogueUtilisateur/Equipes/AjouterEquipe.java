@@ -1,20 +1,25 @@
 package dialogueUtilisateur.Equipes;
 
 import inscriptions.Inscriptions;
-import utilitaires.ligneDeCommande.Action;
+import utilitaires.ligneDeCommande.*;
 import utilitaires.EntreesSorties;
 import dialogueUtilisateur.Equipes.MenuEquipe;
 
 
-public class AjouterEquipe implements Action 
+public class AjouterEquipe extends Option implements Action 
 {
-	public AjouterEquipe(MenuEquipe menu)
-	{
-		Inscriptions inscriptions = Inscriptions.getInscriptions();
+	private Inscriptions inscriptions;
+	
+	public AjouterEquipe(Inscriptions inscriptions) {
+		super("Ajouter une equipe", "a");
+		this.inscriptions = inscriptions;
+		setAction(this);
 	}
 	public void optionSelectionnee()
 	{
-		String nomEquipe = EntreesSorties.getString("Saisissez le nom de l'équipe");
+		String nomEquipe = EntreesSorties.getString("Saisissez le nom de l'équipe \n");
+		inscriptions.createEquipe(nomEquipe);
+		System.out.println("L'équipe " + nomEquipe + " a bien été créée");
 	}
 
 }

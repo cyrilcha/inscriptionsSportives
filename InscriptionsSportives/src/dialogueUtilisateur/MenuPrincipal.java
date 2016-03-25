@@ -13,7 +13,6 @@ public class MenuPrincipal extends Menu{
 		ajoute(new MenuCompetition(inscriptions));
 		ajoute(new MenuEquipe(inscriptions));
 		ajoute(new MenuPersonne(inscriptions));
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
