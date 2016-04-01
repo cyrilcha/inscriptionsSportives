@@ -44,6 +44,30 @@ public class FenetrePrincipale extends JFrame
 			
 		});
 		
+		btnequipe.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				setVisible(false);
+				FenetreEquipe fenetreequipe = new FenetreEquipe();
+				fenetreequipe.setVisible(true);
+			}
+			
+		});
+		
+		btnpers.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				setVisible(false);
+				FenetrePers fenetrepers = new FenetrePers();
+				fenetrepers.setVisible(true);
+			}
+			
+		});
+		
 	}
 
 ;}

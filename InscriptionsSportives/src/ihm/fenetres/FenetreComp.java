@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class FenetreComp extends JFrame 
 {
 	private JButton btnaddcomp = new JButton("Ajouter une compétition");
+	private JButton btnsupprcomp = new JButton("Supprimer une compétition");
 	private JPanel conteneur = new JPanel();
 
 	public FenetreComp()
@@ -20,6 +21,7 @@ public class FenetreComp extends JFrame
 		setVisible(true);
 		
 		conteneur.add(btnaddcomp);
+		conteneur.add(btnsupprcomp);
 		setContentPane(conteneur);
 		
 		btnaddcomp.addActionListener(new ActionListener()
@@ -30,6 +32,18 @@ public class FenetreComp extends JFrame
 				setVisible(false);
 				FenetreAjoutComp fenetreajoutcomp = new FenetreAjoutComp();
 				fenetreajoutcomp.setVisible(true);
+			}
+			
+		});
+		
+		btnsupprcomp.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				setVisible(false);
+				FenetreAjoutComp fenetresupprcomp = new FenetreAjoutComp();
+				fenetresupprcomp.setVisible(true);
 			}
 			
 		});

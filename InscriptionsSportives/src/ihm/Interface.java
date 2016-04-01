@@ -8,16 +8,8 @@ import java.awt.Dimension;
 
 import ihm.fenetres.FenetrePrincipale;
 
-import inscriptions.Inscriptions;
-
 public class Interface extends JFrame
 {
-	private Inscriptions inscriptions;
-	
-	public Interface(Inscriptions inscriptions)
-    {
-		this.inscriptions = inscriptions;
-    }
 	
 	public static void main(String[] args)
 	{

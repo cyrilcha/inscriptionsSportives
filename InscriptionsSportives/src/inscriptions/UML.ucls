@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="inscriptions.Candidat" project="InscriptionsSportives" 
     file="/InscriptionsSportives/src/inscriptions/Candidat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="481" y="-67"/>    
+    <position height="-1" width="-1" x="791" y="-52"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="inscriptions.Competition" project="InscriptionsSportives" 
     file="/InscriptionsSportives/src/inscriptions/Competition.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1465" y="-5"/>    
+    <position height="-1" width="-1" x="168" y="-14"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="inscriptions.Personne" project="InscriptionsSportives" 
     file="/InscriptionsSportives/src/inscriptions/Personne.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="201" y="202"/>    
+    <position height="-1" width="-1" x="1052" y="-42"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="inscriptions.Inscriptions" project="InscriptionsSportives" 
     file="/InscriptionsSportives/src/inscriptions/Inscriptions.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="983" y="330"/>    
+    <position height="-1" width="-1" x="499" y="149"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="inscriptions.Equipe" project="InscriptionsSportives" 
     file="/InscriptionsSportives/src/inscriptions/Equipe.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="496" y="451"/>    
+    <position height="-1" width="-1" x="847" y="255"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -47,124 +47,126 @@
     </display>  
   </class>  
   <association id="6">    
-    <bendpoint x="652" y="377"/>    
+    <bendpoint x="708" y="137"/>    
     <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="7" name="candidats">        
-        <position height="0" width="0" x="-147" y="-233"/>      
+        <position height="0" width="0" x="163" y="-218"/>      
       </attribute>      
       <multiplicity id="8" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-147" y="-233"/>      
+        <position height="0" width="0" x="163" y="-218"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="9">    
+    <bendpoint x="297" y="247"/>    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="10" name="inscriptions">        
-        <position height="0" width="0" x="101" y="-303"/>      
+      <attribute id="10" name="competitions">        
+        <position height="0" width="0" x="-857" y="-203"/>      
       </attribute>      
-      <multiplicity id="11" minimum="0" maximum="1">        
-        <position height="0" width="0" x="101" y="-303"/>      
+      <multiplicity id="11" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-857" y="-203"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="13">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="14" name="equipes">        
-        <position height="0" width="0" x="-12" y="-256"/>      
-      </attribute>      
-      <multiplicity id="15" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-12" y="-256"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
+  <association id="12">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="17" name="membres">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="13" name="membres">        
+        <position height="0" width="0" x="851" y="-244"/>      
       </attribute>      
-      <multiplicity id="18" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="14" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="851" y="-244"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="20" name="competitions">        
-        <position height="0" width="0" x="440" y="-194"/>      
+  <association id="15">    
+    <bendpoint x="997" y="136"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="16" name="equipes">        
+        <position height="0" width="0" x="339" y="-452"/>      
       </attribute>      
-      <multiplicity id="21" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="440" y="-194"/>      
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="339" y="-452"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <bendpoint x="506" y="-71"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="19" name="competitions">        
+        <position height="0" width="0" x="-857" y="-203"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-857" y="-203"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="23" name="inscriptions">        
-        <position height="0" width="0" x="101" y="-303"/>      
+  <association id="21">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="22" name="inscriptions">        
+        <position height="0" width="0" x="-383" y="-484"/>      
       </attribute>      
-      <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="101" y="-303"/>      
+      <multiplicity id="23" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-383" y="-484"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
-    <bendpoint x="747" y="156"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="26" name="candidats">        
-        <position height="0" width="0" x="-147" y="-233"/>      
+  <association id="24">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="25" name="inscriptions">        
+        <position height="0" width="0" x="-383" y="-484"/>      
       </attribute>      
-      <multiplicity id="27" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-147" y="-233"/>      
+      <multiplicity id="26" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-383" y="-484"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="27">    
+    <bendpoint x="599" y="-178"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="28" name="candidats">        
+        <position height="0" width="0" x="163" y="-218"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="163" y="-218"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="28">    
-    <bendpoint x="459" y="331"/>    
+  <generalization id="30">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="29">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="30" name="competitions">        
-        <position height="0" width="0" x="440" y="-194"/>      
+  <association id="31">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="32" name="inscriptions">        
+        <position height="0" width="0" x="-383" y="-484"/>      
       </attribute>      
-      <multiplicity id="31" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="440" y="-194"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="33" name="inscriptions">        
-        <position height="0" width="0" x="101" y="-303"/>      
-      </attribute>      
-      <multiplicity id="34" minimum="0" maximum="1">        
-        <position height="0" width="0" x="101" y="-303"/>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-383" y="-484"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
