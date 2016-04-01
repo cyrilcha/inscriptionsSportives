@@ -32,29 +32,29 @@ public class FenetrePers extends JFrame
 		conteneur.add(btnsupprpers);
 		setContentPane(conteneur);
 		
-		btnaddpers.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				setVisible(false);
-				FenetreAjoutComp fenetreajoutpers = new FenetreAjoutComp();
-				fenetreajoutpers.setVisible(true);
-			}
-			
-		});
-		
-		btnsupprpers.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				setVisible(false);
-				FenetreAjoutComp fenetresupprpers = new FenetreAjoutComp();
-				fenetresupprpers.setVisible(true);
-			}
-			
-		});
+//		btnaddpers.addActionListener(new ActionListener()
+//		{
+//			@Override
+//			public void actionPerformed(ActionEvent e)
+//			{
+//				setVisible(false);
+//				FenetreAjoutComp fenetreajoutpers = new FenetreAjoutComp();
+//				fenetreajoutpers.setVisible(true);
+//			}
+//			
+//		});
+//		
+//		btnsupprpers.addActionListener(new ActionListener()
+//		{
+//			@Override
+//			public void actionPerformed(ActionEvent e)
+//			{
+//				setVisible(false);
+//				FenetreAjoutComp fenetresupprpers = new FenetreAjoutComp();
+//				fenetresupprpers.setVisible(true);
+//			}
+//			
+//		});
 	}
 
 }

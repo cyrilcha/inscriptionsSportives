@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import ihm.fenetres.FenetreComp;
+import inscriptions.Inscriptions;
 
 public class FenetrePrincipale extends JFrame 
 {
@@ -18,8 +19,11 @@ public class FenetrePrincipale extends JFrame
 	private JButton btnpers = new JButton("Personnes");
 	private JPanel conteneur = new JPanel();
 	
-	public FenetrePrincipale()
+	private Inscriptions inscriptions;
+	
+	public FenetrePrincipale(Inscriptions inscriptions)
 	{
+		this.inscriptions = inscriptions;
 		setTitle("Menu principal");
 		setSize(400,300);
 		setResizable(false);
@@ -38,7 +42,7 @@ public class FenetrePrincipale extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{
 				setVisible(false);
-				FenetreComp fenetrecomp = new FenetreComp();
+				FenetreComp fenetrecomp = new FenetreComp(inscriptions);
 				fenetrecomp.setVisible(true);
 			}
 			

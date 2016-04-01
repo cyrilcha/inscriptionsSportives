@@ -34,29 +34,29 @@ public class FenetreEquipe extends JFrame
 		conteneur.add(btnsupprequipe);
 		setContentPane(conteneur);
 		
-		btnaddequipe.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				setVisible(false);
-				FenetreAjoutComp fenetreajoutequipe = new FenetreAjoutComp();
-				fenetreajoutequipe.setVisible(true);
-			}
-			
-		});
-		
-		btnsupprequipe.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				setVisible(false);
-				FenetreAjoutComp fenetresupprequipe = new FenetreAjoutComp();
-				fenetresupprequipe.setVisible(true);
-			}
-			
-		});
+//		btnaddequipe.addActionListener(new ActionListener()
+//		{
+//			@Override
+//			public void actionPerformed(ActionEvent e)
+//			{
+//				setVisible(false);
+//				FenetreAjoutComp fenetreajoutequipe = new FenetreAjoutComp();
+//				fenetreajoutequipe.setVisible(true);
+//			}
+//			
+//		});
+//		
+//		btnsupprequipe.addActionListener(new ActionListener()
+//		{
+//			@Override
+//			public void actionPerformed(ActionEvent e)
+//			{
+//				setVisible(false);
+//				FenetreAjoutComp fenetresupprequipe = new FenetreAjoutComp();
+//				fenetresupprequipe.setVisible(true);
+//			}
+//			
+//		});
 	}
 
 }
