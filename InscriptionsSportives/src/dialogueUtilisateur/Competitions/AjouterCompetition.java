@@ -32,7 +32,7 @@ public class AjouterCompetition extends Option implements Action
 		{
 			Equipe = false;
 		}
-	    inscriptions.createCompetition(nomCompetition, (LocalDate)dateCloture, Equipe);
+	    inscriptions.createCompetition(nomCompetition, dateCloture, Equipe);
 	    System.out.println("La compétition a bien été créee");
 
 	}

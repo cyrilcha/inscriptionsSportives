@@ -26,10 +26,6 @@ public class Inscriptions implements Serializable
 	
 	private SortedSet<Competition> competitions = new TreeSet<>();
 	private SortedSet<Candidat> candidats = new TreeSet<>();
-
-	private Inscriptions()
-	{
-	}
 	
 	/**
 	 * Retourne les compétitions.
@@ -49,6 +45,36 @@ public class Inscriptions implements Serializable
 	public SortedSet<Candidat> getCandidats()
 	{
 		return Collections.unmodifiableSortedSet(candidats);
+	}
+	
+
+	/**
+	 * Retourne toutes les personnes.
+	 * @return
+	 */
+	
+	public SortedSet<Personne> getPersonnes()
+	{
+		SortedSet<Personne> personnes = new TreeSet<>();
+		for (Candidat c : getCandidats())
+			if (c instanceof Personne)
+				personnes.add((Personne)c);
+		return Collections.unmodifiableSortedSet(personnes);
+	}
+
+
+	/**
+	 * Retourne toutes les équipes.
+	 * @return
+	 */
+	
+	public SortedSet<Equipe> getEquipes()
+	{
+		SortedSet<Equipe> equipes = new TreeSet<>();
+		for (Candidat c : getCandidats())
+			if (c instanceof Equipe)
+				equipes.add((Equipe)c);
+		return Collections.unmodifiableSortedSet(equipes);
 	}
 
 	/**

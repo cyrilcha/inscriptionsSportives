@@ -1,16 +1,12 @@
 package ihm;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.Dimension;
-
 import ihm.fenetres.FenetrePrincipale;
 import inscriptions.Inscriptions;
 
 public class Interface extends JFrame
 {
+	private static final long serialVersionUID = -2424481175712954740L;
 	private Inscriptions inscriptions;
 	
 	public Interface(Inscriptions inscriptions)
@@ -20,8 +16,8 @@ public class Interface extends JFrame
 	
 	public static void main(String[] args)
 	{
-		FenetrePrincipale fenetremainmenu = new FenetrePrincipale(Inscriptions.getInscriptions());
-		fenetremainmenu.setVisible(true);
+		FenetrePrincipale fenetreprincipale = new FenetrePrincipale(Inscriptions.getInscriptions());
+		fenetreprincipale.setVisible(true);
 	}
 	
 	

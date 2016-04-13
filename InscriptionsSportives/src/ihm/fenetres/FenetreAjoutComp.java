@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.time.LocalDate;
 
 public class FenetreAjoutComp extends JFrame
 {
-	
+	private static final long serialVersionUID = -2424481175712954740L;
 	private JTextField nomcomp = new JTextField(20);
 	private JTextField jourcomp = new JTextField(2);
 	private JTextField moiscomp = new JTextField(2);
@@ -25,41 +28,8 @@ public class FenetreAjoutComp extends JFrame
 	private JRadioButton radiobtnind = new JRadioButton("inscriptions indivuelles");
 	private JRadioButton radiobtnequ = new JRadioButton("inscriptions en équipe");
 	
-
-	private ListModel getCompetitionsListModel()
-	{
-		final List<Competition> competitions = new ArrayList<>(inscriptions.getCompetitions());
-		
-		ListModel listModel = new AbstractListModel<Competition>() {
-
-			@Override
-			public int getSize() 
-			{
-				return inscriptions.getCompetitions().size();
-			}
-
-			@Override
-			public Competition getElementAt(int index) 
-			{
-				return competitions.get(index);
-			}
-		};
-		
-		return listModel;
-	}
-	
-	
-	private JList getCompetitionList()
-	{
-		JList list = new JList(getCompetitionsListModel());
-		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-		list.setVisibleRowCount(-1);
-		JScrollPane listScroller = new JScrollPane(list);
-		listScroller.setPreferredSize(new Dimension(250, 80));
-		return list;
-	}
-	
+	private Inscriptions inscriptions;
+	FenetreComp fenetreComp; 
 	
 	private ActionListener ajouterCompetitionAction()
 	{
@@ -78,7 +48,14 @@ public class FenetreAjoutComp extends JFrame
 				LocalDate dateCloture = LocalDate.of(annee, mois, jour);
 				boolean equipe = radiobtnequ.isSelected();
 				Competition comp = inscriptions.createCompetition(nomcompetition, dateCloture, equipe);
-				
+				fenetreComp.mettreAJourCompetitions();
+				fenetreComp.setVisible(true);
+				try 
+				{
+					inscriptions.sauvegarder();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 			
 		};
@@ -126,23 +103,64 @@ public class FenetreAjoutComp extends JFrame
 
 	}
 	
-private Inscriptions inscriptions;
-	
-	public FenetreAjoutComp(Inscriptions inscriptions)
+	public FenetreAjoutComp(Inscriptions inscriptions, FenetreComp fenetreComp)
 	{
 		this.inscriptions = inscriptions;
+		this.fenetreComp = fenetreComp;
 		setTitle("Ajout d'une compétition");
 		setSize(400,300);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		
 		setContentPane(getConteneurPrincipal());
-		
-		
-		
-		
+		addWindowListener(getWindowListener());
+	}
+	
+	private WindowListener getWindowListener()
+	{
+		return new WindowListener() {
+			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				fenetreComp.setVisible(true);
+			}
+			
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 	}
 
-;}
+}
