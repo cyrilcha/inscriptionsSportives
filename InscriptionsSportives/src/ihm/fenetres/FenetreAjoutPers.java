@@ -2,33 +2,29 @@ package ihm.fenetres;
 
 import javax.swing.*;
 import javax.swing.event.ListDataListener;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.TableModel;
 
-import inscriptions.Candidat;
 import inscriptions.Competition;
 import inscriptions.Equipe;
 import inscriptions.Personne;
 import inscriptions.Inscriptions;
 
-import java.awt.Dimension;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FenetreAjoutPers extends JFrame
 {
 	private static final long serialVersionUID = -2424481175712954740L;
-	private JTextField nompers = new JTextField(10);
-	private JTextField prenompers = new JTextField(10);
+	private JTextField nompers = new JTextField(20);
+	private JTextField prenompers = new JTextField(20);
 	private JTextField mailpers = new JTextField(20);
-	private JList listequipepers;
-	private JList listcomppers;
+	private JList<Equipe> listequipepers;
+	private JList<Competition> listcomppers;
 	
 	private Inscriptions inscriptions;
 	FenetrePers fenetrePers;
@@ -43,7 +39,7 @@ public class FenetreAjoutPers extends JFrame
 		return new ArrayList<>(inscriptions.getEquipes());
 	}
 	
-	private ListModel getCompetitionsListModel(final List<Competition> competitions)
+	private ListModel<Competition> getCompetitionsListModel(final List<Competition> competitions)
 	{
 		return new ListModel<Competition>() 
 		{@Override
@@ -54,14 +50,12 @@ public class FenetreAjoutPers extends JFrame
 
 		@Override
 		public int getSize() {
-			// TODO Auto-generated method stub
 			return competitions.size();
 		}
 
 		@Override
 		public Competition getElementAt(int index) {
-			// TODO Auto-generated method stub
-			return null;
+			return competitions.get(index);
 		}
 
 		@Override
@@ -72,7 +66,7 @@ public class FenetreAjoutPers extends JFrame
 		};
 	}
 	
-	private ListModel getEquipesListModel(final List<Equipe> equipes)
+	private ListModel<Equipe> getEquipesListModel(final List<Equipe> equipes)
 	{
 		return new ListModel<Equipe>() 
 		{@Override
@@ -88,8 +82,7 @@ public class FenetreAjoutPers extends JFrame
 
 		@Override
 		public Equipe getElementAt(int index) {
-			// TODO Auto-generated method stub
-			return null;
+			return equipes.get(index);
 		}
 
 		@Override
@@ -125,6 +118,8 @@ public class FenetreAjoutPers extends JFrame
 	private JPanel getConteneurEquipe()
 	{
 		JPanel pnlequipepers = new JPanel();
+		listequipepers = new JList<Equipe>();
+		listequipepers.setModel(getEquipesListModel(getEquipes()));
 		pnlequipepers.add(listequipepers);
 		return pnlequipepers;
 	}
@@ -152,10 +147,10 @@ public class FenetreAjoutPers extends JFrame
 		conteneur.add(getConteneurPrenom());
 		conteneur.add(labelmailpers);
 		conteneur.add(getConteneurMail());
-		conteneur.add(labelequipepers);
-		conteneur.add(getConteneurEquipe());
-		conteneur.add(labelcomppers);
-		conteneur.add(getConteneurComp());
+//		conteneur.add(labelequipepers);
+//		conteneur.add(getConteneurEquipe());
+//		conteneur.add(labelcomppers);
+//		conteneur.add(getConteneurComp());
 		
 		JButton btnAjouterPersonne = new JButton("Ajouter");
 		conteneur.add(btnAjouterPersonne);
@@ -179,7 +174,7 @@ public class FenetreAjoutPers extends JFrame
 				String prenompersonne = prenompers.getText();
 				String mailpersonne = mailpers.getText();
 				
-				Personne pers = inscriptions.createPersonne(nompersonne, prenompersonne, mailpersonne);
+				inscriptions.createPersonne(nompersonne, prenompersonne, mailpersonne);
 				
 				fenetrePers.mettreAJourPersonnes();
 				fenetrePers.setVisible(true);
@@ -199,7 +194,7 @@ public class FenetreAjoutPers extends JFrame
 		this.inscriptions = inscriptions;
 		this.fenetrePers = fenetrePers;
 		setTitle("Ajout d'une personne");
-		setSize(800,400);
+		setSize(500,400);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);

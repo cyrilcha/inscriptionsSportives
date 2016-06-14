@@ -1,40 +1,72 @@
 package ihm.fenetres;
 
 import javax.swing.*;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.TableModel;
 
 import inscriptions.Equipe;
-import inscriptions.Personne;
 import inscriptions.Inscriptions;
 
-import java.awt.Dimension;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FenetreAjoutEquipe extends JFrame 
 {
 	private static final long serialVersionUID = -2424481175712954740L;
-	private JTextField nomequipe = new JTextField(20);
+	private JTextField nomequ = new JTextField(20);
 	
 	private Inscriptions inscriptions;
 	FenetreEquipe fenetreEquipe;
 	
+	private ActionListener ajouterEquipeAction()
+	{
+		return new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				
+				setVisible(false);
+				String nomequipe = nomequ.getText();
+				
+				inscriptions.createEquipe(nomequipe);
+				
+				fenetreEquipe.mettreAJourEquipes();
+				fenetreEquipe.setVisible(true);
+				try 
+				{
+					inscriptions.sauvegarder();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		};
+	}
+	
+	private JPanel getConteneurPrincipal()
+	{
+		JPanel conteneur = new JPanel();
+		JLabel labelnomequipe = new JLabel("Saisissez le nom de l'équipe :");
+		conteneur.add(labelnomequipe);
+		conteneur.add(nomequ);
+		JButton btnAjouterEquipe = new JButton("Ajouter");
+		conteneur.add(btnAjouterEquipe);
+		btnAjouterEquipe.addActionListener(ajouterEquipeAction());
+		return conteneur;
+	}
 	public FenetreAjoutEquipe(Inscriptions inscriptions, FenetreEquipe fenetreEquipe)
 	{
 		this.inscriptions = inscriptions;
 		this.fenetreEquipe = fenetreEquipe;
 		setTitle("Ajout d'une équipe");
-		setSize(800,400);
+		setSize(400,300);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		//setContentPane(getConteneurPrincipal());
+		setContentPane(getConteneurPrincipal());
 		addWindowListener(getWindowListener());
 	}
 	

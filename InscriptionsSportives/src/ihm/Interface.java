@@ -7,6 +7,7 @@ import inscriptions.Inscriptions;
 public class Interface extends JFrame
 {
 	private static final long serialVersionUID = -2424481175712954740L;
+	@SuppressWarnings("unused")
 	private Inscriptions inscriptions;
 	
 	public Interface(Inscriptions inscriptions)
@@ -19,6 +20,5 @@ public class Interface extends JFrame
 		FenetrePrincipale fenetreprincipale = new FenetrePrincipale(Inscriptions.getInscriptions());
 		fenetreprincipale.setVisible(true);
 	}
-	
 	
 }

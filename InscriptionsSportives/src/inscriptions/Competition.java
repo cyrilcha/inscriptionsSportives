@@ -22,10 +22,10 @@ public class Competition implements Comparable<Competition>, Serializable
 
 	Competition(Inscriptions inscriptions, String nom, LocalDate dateCloture, boolean enEquipe)
 	{
-		this.enEquipe = enEquipe;
 		this.inscriptions = inscriptions;
 		this.nom = nom;
 		this.dateCloture = dateCloture;
+		this.enEquipe = enEquipe;
 		candidats = new TreeSet<>();
 	}
 	
@@ -82,7 +82,7 @@ public class Competition implements Comparable<Competition>, Serializable
 	
 	public void setDateCloture(LocalDate dateCloture)
 	{
-		if(dateCloture.isAfter(this.dateCloture))
+		if(dateCloture.isAfter(this.dateCloture) || dateCloture.equals(this.dateCloture))
 			this.dateCloture = dateCloture;
 		else
 			throw new RuntimeException("Vous ne pouvez pas avancer la date de clôture");

@@ -19,7 +19,7 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 	
 	Candidat(Inscriptions inscriptions, String nom)
 	{
-		this.inscriptions = inscriptions;	
+		this.inscriptions = inscriptions;
 		this.nom = nom;
 		competitions = new TreeSet<>();
 	}

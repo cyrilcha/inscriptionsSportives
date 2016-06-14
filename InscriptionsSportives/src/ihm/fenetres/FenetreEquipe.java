@@ -5,7 +5,6 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
 import inscriptions.Equipe;
-import inscriptions.Personne;
 import inscriptions.Inscriptions;
 
 import java.awt.Dimension;
@@ -46,7 +45,7 @@ public class FenetreEquipe extends JFrame
 
 			@Override
 			public int getColumnCount() {
-				return 3;
+				return 1;
 			}
 
 			@Override
@@ -54,8 +53,6 @@ public class FenetreEquipe extends JFrame
 				switch (columnIndex)
 				{
 					case 0 : return "Nom";
-					case 1 : return "Personnes";
-					case 2 : return "Compétitions";
 				}
 				return null;
 			}
@@ -65,8 +62,6 @@ public class FenetreEquipe extends JFrame
 				switch (columnIndex)
 				{
 					case 0 : return String.class;
-					case 1 : return String.class;
-					case 2 : return String.class;
 				}
 				return null;
 			}
@@ -79,16 +74,9 @@ public class FenetreEquipe extends JFrame
 
 			@Override
 			public Object getValueAt(int rowIndex, int columnIndex) {
-				String chaîne = null;
 				switch (columnIndex)
 				{
 					case 0 : return equipes.get(rowIndex).getNom();
-					case 1 : for(Personne p : equipes.get(rowIndex).getMembres())
-					{
-						chaîne = p.getNom() + " " + "\n";
-					}
-					return chaîne;
-					case 2 : return equipes.get(rowIndex).getCompetitions();
 				}
 				return null;
 				
@@ -139,7 +127,7 @@ public class FenetreEquipe extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				getEquipes().get(table.getSelectedRow()).delete();
+				inscriptions.remove(getEquipes().get(table.getSelectedRow()));
 				mettreAJourEquipes();
 				try 
 				{
@@ -169,7 +157,7 @@ public class FenetreEquipe extends JFrame
 		this.inscriptions = inscriptions;
 		this.fenetreParent = fenetreParent;
 		setTitle("Menu des équipes");
-		setSize(800,400);
+		setSize(500,400);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -207,6 +195,11 @@ public class FenetreEquipe extends JFrame
 			
 			@Override
 			public void windowClosing(WindowEvent e) {
+				try {
+					inscriptions.sauvegarder();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				fenetreParent.setVisible(true);
 			}
 			

@@ -14,6 +14,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,34 +65,46 @@ public class FenetreComp extends JFrame
 
 			@Override
 			public Class<?> getColumnClass(int columnIndex) {
-				switch (columnIndex)
-				{
-					case 0 : return String.class;
-					case 1 : return LocalDate.class;
-					case 2 : return String.class;
-				}
-				return null;
+				return String.class;
 			}
 
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				return false;
+				return true;
 			}
-
+			
 			@Override
 			public Object getValueAt(int rowIndex, int columnIndex) {
 				switch (columnIndex)
 				{
 					case 0 : return competitions.get(rowIndex).getNom();
-					case 1 : return competitions.get(rowIndex).getDateCloture();
-					case 2 : return competitions.get(rowIndex).estEnEquipe();
+					case 1 : return competitions.get(rowIndex).getDateCloture().toString();
+					case 2 : 
+							if(competitions.get(rowIndex).estEnEquipe())
+							{
+								return "Oui";
+							}
+							else
+							{
+								return "Non";
+							}
 				}
 				return null;
 				
 			}
 
 			@Override
-			public void setValueAt(Object aValue, int rowIndex, int columnIndex) {				
+			public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+				switch(columnIndex)
+				{
+					case 1 : 
+					{
+						String pattern = "yyyy-MM-dd";
+						DateTimeFormatter format = DateTimeFormatter.ofPattern(pattern);
+						LocalDate date = LocalDate.parse ((String)aValue, format);
+						competitions.get(rowIndex).setDateCloture(date);
+					}
+				}	
 			}
 
 			@Override
@@ -134,17 +148,12 @@ public class FenetreComp extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				getCompetitions().get(table.getSelectedRow()).delete();
+				inscriptions.remove(getCompetitions().get(table.getSelectedRow()));
 				mettreAJourCompetitions();
-				try 
-				{
-					inscriptions.sauvegarder();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 			}
 		};
 	}
+	
 	
 	private JPanel getConteneurPrincipal()
 	{
@@ -163,7 +172,7 @@ public class FenetreComp extends JFrame
 		this.inscriptions = inscriptions;
 		this.fenetreParent = fenetreParent;
 		setTitle("Menu des compétitions");
-		setSize(800,400);
+		setSize(500,400);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -201,6 +210,11 @@ public class FenetreComp extends JFrame
 			
 			@Override
 			public void windowClosing(WindowEvent e) {
+				try {
+					inscriptions.sauvegarder();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				fenetreParent.setVisible(true);
 			}
 			

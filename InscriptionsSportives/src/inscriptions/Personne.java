@@ -1,5 +1,6 @@
 package inscriptions;
 
+
 import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
@@ -71,6 +72,12 @@ public class Personne extends Candidat
 	{
 		return Collections.unmodifiableSet(equipes);
 	}
+	
+	/**
+	 * 
+	 * @Retourne les messages que cette personne a reçu
+	 * @return
+	 */
 	
 	boolean add(Equipe equipe)
 	{

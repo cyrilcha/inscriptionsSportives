@@ -2,20 +2,16 @@ package ihm.fenetres;
 
 import javax.swing.*;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import inscriptions.Inscriptions;
-import inscriptions.Competition;
 
-import java.time.LocalDate;
+import bdd.connect;
 
 public class FenetreAjoutComp extends JFrame
 {
@@ -27,7 +23,6 @@ public class FenetreAjoutComp extends JFrame
 	
 	private JRadioButton radiobtnind = new JRadioButton("inscriptions indivuelles");
 	private JRadioButton radiobtnequ = new JRadioButton("inscriptions en équipe");
-	
 	private Inscriptions inscriptions;
 	FenetreComp fenetreComp; 
 	
@@ -47,7 +42,7 @@ public class FenetreAjoutComp extends JFrame
 				int annee = Integer.parseInt(anneecomp.getText());
 				LocalDate dateCloture = LocalDate.of(annee, mois, jour);
 				boolean equipe = radiobtnequ.isSelected();
-				Competition comp = inscriptions.createCompetition(nomcompetition, dateCloture, equipe);
+				inscriptions.createCompetition(nomcompetition, dateCloture, equipe);
 				fenetreComp.mettreAJourCompetitions();
 				fenetreComp.setVisible(true);
 				try 

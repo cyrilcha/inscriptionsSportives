@@ -13,7 +13,7 @@ import inscriptions.Personne;
 
 public class TestEquipe
 {
-	Inscriptions i = Inscriptions.getInscriptions();
+	/*Inscriptions i = Inscriptions.getInscriptions();
 	Equipe e = i.createEquipe("CGY");
 	Personne p = i.createPersonne("Chatin","Cyril","chatincyril@yahoo.fr");
 	
@@ -31,5 +31,5 @@ public class TestEquipe
 		assertTrue(e.remove(p));
 		assertFalse(e.getMembres().contains(p));
 	}
-	
+	*/
 }

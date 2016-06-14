@@ -4,8 +4,6 @@ import javax.swing.*;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
-import inscriptions.Candidat;
-import inscriptions.Equipe;
 import inscriptions.Personne;
 import inscriptions.Inscriptions;
 
@@ -25,18 +23,18 @@ public class FenetrePers extends JFrame
 	private JTable table;
 	JFrame fenetreParent;
 	
-	private List<Candidat> getPersonnes()
+	private List<Personne> getPersonnes()
 	{
-		return new ArrayList<>(inscriptions.getCandidats());
+		return new ArrayList<>(inscriptions.getPersonnes());
 	}
 	
 	public void mettreAJourPersonnes()
 	{
-		List<Candidat> personnes = getPersonnes();
+		List<Personne> personnes = getPersonnes();
 		table.setModel(getPersonnesTableModel(personnes));
 	}
 	
-	private TableModel getPersonnesTableModel(final List<Candidat> personnes)
+	private TableModel getPersonnesTableModel(final List<Personne> personnes)
 	{
 		return new TableModel() 
 		{
@@ -47,7 +45,7 @@ public class FenetrePers extends JFrame
 
 			@Override
 			public int getColumnCount() {
-				return 5;
+				return 3;
 			}
 
 			@Override
@@ -57,8 +55,6 @@ public class FenetrePers extends JFrame
 					case 0 : return "Nom";
 					case 1 : return "Prénom";
 					case 2 : return "E-mail";
-					case 3 : return "Equipes";
-					case 4 : return "Compétitions";
 				}
 				return null;
 			}
@@ -70,15 +66,13 @@ public class FenetrePers extends JFrame
 					case 0 : return String.class;
 					case 1 : return String.class;
 					case 2 : return String.class;
-					case 3 : return Equipe.class;
-					case 4 : return String.class;
 				}
 				return null;
 			}
 
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				return false;
+				return true;
 			}
 
 			@Override
@@ -86,10 +80,8 @@ public class FenetrePers extends JFrame
 				switch (columnIndex)
 				{
 					case 0 : return personnes.get(rowIndex).getNom();
-					case 1 : return ((Personne) personnes.get(rowIndex)).getPrenom();
-					case 2 : return ((Personne) personnes.get(rowIndex)).getMail();
-					case 3 : return ((Personne) personnes.get(rowIndex)).getEquipes();
-					case 4 : return personnes.get(rowIndex).getCompetitions();
+					case 1 : return personnes.get(rowIndex).getPrenom();
+					case 2 : return personnes.get(rowIndex).getMail();
 				}
 				return null;
 				
@@ -140,7 +132,25 @@ public class FenetrePers extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				getPersonnes().get(table.getSelectedRow()).delete();
+				inscriptions.remove(getPersonnes().get(table.getSelectedRow()));
+				mettreAJourPersonnes();
+				try 
+				{
+					inscriptions.sauvegarder();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		};
+	}
+	
+	private ActionListener ModifierPersonneAction()
+	{
+		return new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
 				mettreAJourPersonnes();
 				try 
 				{
@@ -156,12 +166,15 @@ public class FenetrePers extends JFrame
 	{
 		JButton btnaddpers = new JButton("Ajouter une personne");
 		JButton btnsupprpers = new JButton("Supprimer une personne");
+		//JButton btnmodifpers = new JButton("Modifier une personne");
 		JPanel conteneur = new JPanel();
 		conteneur.add(btnaddpers);
 		conteneur.add(btnsupprpers);
+		//conteneur.add(btnmodifpers);
 		conteneur.add(add(new JScrollPane(getPersonneTable())));
 		btnaddpers.addActionListener(getFenetreAjouterPersonneAction());
 		btnsupprpers.addActionListener(SupprimerPersonneAction());
+		//btnmodifpers.addActionListener(ModifierPersonneAction());
 		return conteneur;
 	}
 	
@@ -170,7 +183,7 @@ public class FenetrePers extends JFrame
 		this.inscriptions = inscriptions;
 		this.fenetreParent = fenetreParent;
 		setTitle("Menu des personnes");
-		setSize(800,400);
+		setSize(500,400);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -208,6 +221,11 @@ public class FenetrePers extends JFrame
 			
 			@Override
 			public void windowClosing(WindowEvent e) {
+				try {
+					inscriptions.sauvegarder();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				fenetreParent.setVisible(true);
 			}
 			
